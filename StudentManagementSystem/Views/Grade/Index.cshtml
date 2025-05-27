@@ -1,0 +1,33 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Grade>
+
+@{
+    ViewData["Title"] = "Grades";
+}
+
+<h2>Grades List</h2>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Enrollment.Student.StudentName</td>
+                <td>@item.Enrollment.Course.CourseName</td>
+                <td>@item.LetterGrade</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GradeId" class="btn btn-primary btn-sm">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

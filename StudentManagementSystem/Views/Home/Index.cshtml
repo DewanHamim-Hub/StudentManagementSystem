@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: url('/images/SMSpic.JPG') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .overlay-container {
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end; /* changed from flex-start to flex-end */
+        align-items: center; /* vertical center */
+        padding: 0;
+        margin: 0;
+    }
+
+    .content-box {
+        background-color: rgba(255, 255, 255, 0.92);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+        max-width: 500px;
+        width: 100%;
+        margin-right: 50px; 
+        text-align: center;
+    }
+
+    .card-btn {
+        margin-top: 15px;
+    }
+
+    .btn-login, .btn-register {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+</style>
+
+<div class="overlay-container">
+    <div class="content-box">
+        <h1>Welcome to the Student Management System</h1>
+        <p style="font-size: 18px; color: #555;">
+            Easily manage your students, teachers, courses, grades and more.
+        </p>
+        <div class="card-btn">
+            <a class="btn btn-primary btn-login" asp-controller="Account" asp-action="Login">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+        <div class="card-btn">
+            <a class="btn btn-outline-success btn-register" asp-controller="Account" asp-action="Register">
+                <i class="fas fa-user-plus"></i> Register
+            </a>
+        </div>
+    </div>
+</div>

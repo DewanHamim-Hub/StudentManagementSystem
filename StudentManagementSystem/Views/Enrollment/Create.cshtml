@@ -1,0 +1,54 @@
+﻿@model StudentManagementSystem.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4><i class="fas fa-user-plus me-2"></i>Create New Enrollment</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="StudentId" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
+                                <select asp-for="StudentId" class="form-select" asp-items="ViewBag.StudentId"></select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="CourseId" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-book-open"></i></span>
+                                <select asp-for="CourseId" class="form-select" asp-items="ViewBag.CourseId"></select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="fas fa-check-circle me-1"></i>Create
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="text-decoration-none">
+                    <i class="fas fa-arrow-left me-1"></i>Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

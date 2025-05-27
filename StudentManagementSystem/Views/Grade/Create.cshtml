@@ -1,0 +1,58 @@
+﻿@model StudentManagementSystem.Models.Grade
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">
+                        <i class="fas fa-graduation-cap me-2"></i>Create New Grade
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3 input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="fas fa-user-graduate"></i>
+                            </span>
+                            <select asp-for="EnrollmentId" class="form-select" asp-items="ViewBag.EnrollmentId">
+                                <option value="">-- Select Enrollment --</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="EnrollmentId" class="text-danger d-block mb-2"></span>
+
+                        <div class="mb-3 input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="fas fa-pen-nib"></i>
+                            </span>
+                            <input asp-for="LetterGrade" class="form-control" placeholder="Letter Grade (e.g. A, B+)" />
+                        </div>
+                        <span asp-validation-for="LetterGrade" class="text-danger d-block mb-2"></span>
+
+                        <button type="submit" class="btn btn-success w-100 mt-2">
+                            <i class="fas fa-plus-circle me-1"></i>Create
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="text-decoration-none">
+                    <i class="fas fa-arrow-left me-1"></i>Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

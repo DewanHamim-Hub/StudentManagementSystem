@@ -1,0 +1,44 @@
+﻿@model StudentManagementSystem.Models.User
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh; background-color: #f5f9ff;">
+    <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
+        <h3 class="text-center mb-4">Register</h3>
+
+        <form asp-action="Register" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label><i class="fas fa-user"></i> Username</label>
+                <input asp-for="UserName" class="form-control" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label><i class="fas fa-lock"></i> Password</label>
+                <input asp-for="Password" type="password" class="form-control" required />
+            </div>
+
+            <div class="form-group mb-4">
+                <label><i class="fas fa-user-tag"></i> Role</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="">-- Select Role --</option>
+                    <option>Admin</option>
+                    <option>Teacher</option>
+                    <option>Student</option>
+                </select>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+        </form>
+
+        <div class="text-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-home me-1"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>

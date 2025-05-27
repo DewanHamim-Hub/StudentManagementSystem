@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-tachometer-alt me-2"></i>Welcome to the Admin Dashboard</h2>
+
+        <form asp-controller="Account" asp-action="Logout" method="post" class="mb-0">
+            <button type="submit" class="btn btn-outline-danger">
+                <i class="fas fa-sign-out-alt me-1"></i>Logout
+            </button>
+        </form>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-users-cog fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Manage Users</h5>
+                    <a asp-controller="Admin" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-teacher fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Manage Teachers</h5>
+                    <a asp-controller="Teacher" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-user-graduate fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Manage Students</h5>
+                    <a asp-controller="Student" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-book fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Manage Courses</h5>
+                    <a asp-controller="Course" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-clipboard-list fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Manage Enrollments</h5>
+                    <a asp-controller="Enrollment" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-graduation-cap fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">View Grades</h5>
+                    <a asp-controller="Grade" asp-action="Index" class="btn btn-primary mt-3 w-100">
+                        <i class="fas fa-arrow-right me-1"></i>Go
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

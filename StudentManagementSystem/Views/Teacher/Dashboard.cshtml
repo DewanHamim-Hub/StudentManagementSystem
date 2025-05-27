@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Teacher Dashboard";
+}
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>Welcome to Teacher Dashboard</h2>
+    <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-outline-danger">Logout</button>
+    </form>
+</div>
+
+<hr />
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center">
+                <i class="fas fa-chalkboard-teacher fa-3x text-primary me-4"></i>
+                <div>
+                    <h5 class="card-title">Assigned Courses</h5>
+                    <p class="card-text">View and manage the courses assigned to you.</p>
+                    <a asp-action="AssignedCourses" asp-controller="Course" class="btn btn-primary">
+                        View Courses <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center">
+                <i class="fas fa-pen-nib fa-3x text-success me-4"></i>
+                <div>
+                    <h5 class="card-title">Give Grade</h5>
+                    <p class="card-text">Assign grades to students in your courses.</p>
+                    <a asp-action="Create" asp-controller="Grade" class="btn btn-success">
+                        Give Grade <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center">
+                <i class="fas fa-edit fa-3x text-warning me-4"></i>
+                <div>
+                    <h5 class="card-title">View and Edit Grades</h5>
+                    <p class="card-text">View details and update student grades.</p>
+                    <a asp-action="Index" asp-controller="Grade" class="btn btn-warning text-white">
+                        Manage Grades <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

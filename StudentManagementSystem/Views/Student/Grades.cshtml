@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Grade>
+
+@{
+    ViewData["Title"] = "My Grades";
+}
+
+<div class="container my-5">
+    <h2 class="mb-4 text-primary">
+        <i class="fas fa-graduation-cap me-2"></i>@ViewData["Title"]
+    </h2>
+    <hr />
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            <i class="fas fa-info-circle me-2"></i>You have not received any grades yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive shadow rounded-3">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            <i class="fas fa-book me-1 text-secondary"></i>
+                            Course Name
+                        </th>
+                        <th>
+                            <i class="fas fa-award me-1 text-secondary"></i>
+                            Letter Grade
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var grade in Model)
+                    {
+                        <tr>
+                            <td class="fs-5">@grade.Enrollment?.Course?.CourseName</td>
+                            <td class="fs-5 fw-bold text-success">@grade.LetterGrade</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

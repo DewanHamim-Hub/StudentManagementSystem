@@ -1,0 +1,80 @@
+﻿@model StudentManagementSystem.Models.Teacher
+
+@{
+    ViewData["Title"] = "Edit Teacher";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0"><i class="fas fa-user-edit me-2"></i>Edit Teacher</h4>
+                </div>
+                <div class="card-body px-5 py-4">
+                    <form asp-action="Edit" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="TeacherId" />
+
+                        <div class="mb-3">
+                            <label asp-for="UserId" class="form-label fw-semibold">@Html.DisplayNameFor(model => model.UserId)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                                <select asp-for="UserId" class="form-select" asp-items="ViewBag.UserId">
+                                    <option value="">-- Select a User --</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="UserId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TeacherName" class="form-label fw-semibold">@Html.DisplayNameFor(model => model.TeacherName)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input asp-for="TeacherName" class="form-control" />
+                            </div>
+                            <span asp-validation-for="TeacherName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold">@Html.DisplayNameFor(model => model.Email)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input asp-for="Email" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Department" class="form-label fw-semibold">@Html.DisplayNameFor(model => model.Department)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                <input asp-for="Department" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Department" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Back to List link outside card -->
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="text-decoration-none">
+                    <i class="fas fa-arrow-left me-1"></i>Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+}
